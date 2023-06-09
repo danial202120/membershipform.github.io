@@ -300,14 +300,14 @@
         </select>
 
         <h3>Proof of Activity According to PKD (from the REGON registered)</h3>
-                <div class="proof-section">
-                    <label for="proof1">Proof 1:</label>
-                    <textarea id="proof1" name="proof1" rows="10" cols="50"></textarea>
-                </div>
-                <div class="proof-section">
-                    <label for="proof2">Proof 2:</label>
-                    <textarea id="proof2" name="proof2" rows="10" cols="50"></textarea>
-                </div>
+                 <div class="proof-section">
+                <label for="proof1">Proof 1:</label>
+                <textarea id="proof1" name="proof1" rows="10" cols="50"></textarea>
+            </div>
+            <div class="proof-section">
+                <label for="proof2">Proof 2:</label>
+                <textarea id="proof2" name="proof2" rows="10" cols="50"></textarea>
+            </div>
 
         <input type="checkbox" id="membershipConsent" name="membershipConsent">
 <label for="membershipConsent" style="font-style: italic; font-size: small;">
@@ -338,96 +338,115 @@
 
 
     <script>
-        function openModal() {
-            document.getElementById("modal").style.display = "block";
-        }
+       function openModal() {
+    document.getElementById("modal").style.display = "block";
+}
 
-        function closeModal() {
-            document.getElementById("modal").style.display = "none";
-        }
+function closeModal() {
+    document.getElementById("modal").style.display = "none";
+}
 
-        function printForm() {
-            var name = document.getElementById("name").value;
-            var email = document.getElementById("email").value;
-            console.log("Name: " + name);
-            console.log("Email: " + email);
-        }
+function printForm() {
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+    console.log("Name: " + name);
+    console.log("Email: " + email);
+}
 
-        function downloadAsPDF() {
-            var name = document.getElementById("name").value;
-            var email = document.getElementById("email").value;
+function downloadAsPDF() {
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
 
-            var doc = new jsPDF();
-            doc.setFontSize(18);
-            doc.text("Membership Form", 20, 20);
-            doc.setFontSize(12);
-            doc.text("Name: " + name, 20, 30);
-            doc.text("Email: " + email, 20, 40);
-            // Add more fields if needed
+    var doc = new jsPDF();
+    doc.setFontSize(18);
+    doc.text("Membership Form", 20, 20);
+    doc.setFontSize(12);
+    doc.text("Name: " + name, 20, 30);
+    doc.text("Email: " + email, 20, 40);
+    // Add more fields if needed
 
-            doc.save("membership_form.pdf");
-        }
+    doc.save("membership_form.pdf");
+}
 
-        function submitForm() {
-            var companyFullName = document.getElementById("companyFullName").value;
-            var address = document.getElementById("address").value;
-            var nip = document.getElementById("nip").value;
-            var companyOfficeAddress = document.getElementById("companyOfficeAddress").value;
-            var correspondenceAddress = document.getElementById("correspondenceAddress").value;
-            var taxNumber = document.getElementById("taxNumber").value;
-            var region = document.getElementById("region").value;
-            var phoneNumber = document.getElementById("phoneNumber").value;
-            var krs = document.getElementById("krs").value;
-            var email = document.getElementById("email").value;
-            var website = document.getElementById("website").value;
-            var numEmployees = document.getElementById("numEmployees").value;
-            var fax = document.getElementById("fax").value;
-            var trade1 = document.getElementById("trade1").value;
-            var trade1Validity = document.getElementById("trade1Validity").value;
-            var trade2 = document.getElementById("trade2").value;
-            var trade2Validity = document.getElementById("trade2Validity").value;
-            var trade3 = document.getElementById("trade3").value;
-            var trade3Validity = document.getElementById("trade3Validity").value;
-            var membershipConsent = document.getElementById("membershipConsent").checked;
+function submitForm() {
+    var companyFullName = document.getElementById("companyFullName").value;
+    var address = document.getElementById("address").value;
+    var nip = document.getElementById("nip").value;
+    var companyOfficeAddress = document.getElementById("companyOfficeAddress").value;
+    var correspondenceAddress = document.getElementById("correspondenceAddress").value;
+    var taxNumber = document.getElementById("taxNumber").value;
+    var region = document.getElementById("region").value;
+    var phoneNumber = document.getElementById("phoneNumber").value;
+    var krs = document.getElementById("krs").value;
+    var email = document.getElementById("email").value;
+    var website = document.getElementById("website").value;
+    var numEmployees = document.getElementById("numEmployees").value;
+    var fax = document.getElementById("fax").value;
+    var trade1 = document.getElementById("trade1").value;
+    var trade1Validity = document.getElementById("trade1Validity").value;
+    var trade2 = document.getElementById("trade2").value;
+    var trade2Validity = document.getElementById("trade2Validity").value;
+    var trade3 = document.getElementById("trade3").value;
+    var trade3Validity = document.getElementById("trade3Validity").value;
+    var membershipConsent = document.getElementById("membershipConsent").checked;
+    var proof1 = document.getElementById("proof1").value;
+    var proof2 = document.getElementById("proof2").value;
 
-            // Compose email body
-            var subject = "Membership Form Submission";
-            var body = "Company Full Name: " + companyFullName + "\n" +
-                "Address: " + address + "\n" +
-                "NIP: " + nip + "\n" +
-                "Address of a company's office: " + companyOfficeAddress + "\n" +
-                "Address for correspondence: " + correspondenceAddress + "\n" +
-                "Tax Number: " + taxNumber + "\n" +
-                "Region: " + region + "\n" +
-                "Phone Number: " + phoneNumber + "\n" +
-                "KRS: " + krs + "\n" +
-                "Email: " + email + "\n" +
-                "Website: " + website + "\n" +
-                "Number of Employees: " + numEmployees + "\n" +
-                "Fax: " + fax + "\n" +
-                "Trade 1: " + trade1 + " (Validity: " + trade1Validity + ")" + "\n" +
-                "Trade 2: " + trade2 + " (Validity: " + trade2Validity + ")" + "\n" +
-                "Trade 3: " + trade3 + " (Validity: " + trade3Validity + ")";
+    // Compose email body
+    var subject = "Membership Form Submission";
+    var body = "Company Full Name: " + companyFullName + "\n" +
+        "Address: " + address + "\n" +
+        "NIP: " + nip + "\n" +
+        "Address of a company's office: " + companyOfficeAddress + "\n" +
+        "Address for correspondence: " + correspondenceAddress + "\n" +
+        "Tax Number: " + taxNumber + "\n" +
+        "Region: " + region + "\n" +
+        "Phone Number: " + phoneNumber + "\n" +
+        "KRS: " + krs + "\n" +
+        "Email: " + email + "\n" +
+        "Website: " + website + "\n" +
+        "Number of Employees: " + numEmployees + "\n" +
+        "Fax: " + fax + "\n" +
+        "Trade 1: " + trade1 + " (Validity: " + trade1Validity + ")" + "\n" +
+        "Trade 2: " + trade2 + " (Validity: " + trade2Validity + ")" + "\n" +
+        "Trade 3: " + trade3 + " (Validity: " + trade3Validity + ")" + "\n\n" +
+        "Proof 1: " + proof1 + "\n" +
+        "Proof 2: " + proof2;
 
-            if (membershipConsent) {
-                body += "\n\n☑️ Membership Consent: I consent to receiving the newsletter and commercial information electronically from the regional chamber of commerce and industry in Katowice. The chamber, located at ul. opolska 1, (40-084), acts as the data controller, in compliance with the act dated July 18th, 2002 on services via electronic means. This consent is unsolicited, and I have the right to revoke it at any time (data processed until consent is revoked). I also have the rights to access, correct, erase, or limit data processing, to object, file a complaint with the supervisory body, or transmit the data. The data controller processes the data according to the privacy policy.";
-            }
+    if (membershipConsent) {
+        body += "\n\n☑️ Membership Consent: I consent to receiving the newsletter and commercial information electronically from the regional chamber of commerce and industry in Katowice. The chamber, located at ul. opolska 1, (40-084), acts as the data controller, in compliance with the act dated July 18th, 2002 on services via electronic means. This consent is unsolicited, and I have the right to revoke it at any time (data processed until consent is revoked). I also have the rights to access, correct, erase, or limit data processing, to object, file a complaint with the supervisory body, or transmit the data. The data controller processes the data according to the privacy policy.";
+    }
 
-            // Compose Gmail URL
-            var gmailURL = "https://mail.google.com/mail/?view=cm&fs=1&to=" + encodeURIComponent(email) + "&su=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+    // Compose Gmail URL
+    var gmailURL = "https://mail.google.com/mail/?view=cm&fs=1&to=" + encodeURIComponent(email) + "&su=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
 
-            // Open Gmail compose window
-            window.open(gmailURL);
+    // Open Gmail compose window
+    window.open(gmailURL);
 
-            // Clear form inputs
-            document.getElementById("membershipForm").reset();
-        }
+    // Clear form inputs
+    document.getElementById("membershipForm").reset();
+}
 
-        // Add event listeners
-        document.getElementById("membershipForm").addEventListener("submit", function (event) {
-            event.preventDefault();
-            submitForm();
-        });
+// Add event listeners
+document.getElementById("membershipForm").addEventListener("submit", function (event) {
+    event.preventDefault();
+    submitForm();
+});
+
+document.getElementById("membershipForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent the form from submitting
+
+    // Get the inputted text from the proof fields
+    var proof1Text = document.getElementById("proof1").value;
+    var proof2Text = document.getElementById("proof2").value;
+
+    // Compose the email with the proof heading and the inputted text
+    var composedEmail = "Proof:\n" + proof1Text + "\n\n" + proof2Text;
+
+    // Display the composed email in an alert (you can modify this part to send the email)
+    alert(composedEmail);
+});
+
     </script>
 </body>
 </html>
